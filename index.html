@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>menu nav</title>
+</head>
+<body>
+    <section class="front-page">
+        <div class="background"></div>
+        <div class="navbar">
+            <!--<div class="hamburger-menu">
+                <i class="fa-solid fa-bars"></i>
+            </div> --> 
+            <div class="logo">
+                <i class="fa-brands fa-pied-piper-alt"></i>
+                <h1>get ready</h1>
+            </div>
+            <div class="links">
+                <a href="">Home</a>
+                <a href="">about</a>
+                <a href="">Contact</a>
+                <a href="">Practice</a>
+            </div>
+        </div>
+    
+        <main>
+            <h2>Let Your body breath</h2>
+            <h3>Get Unlimited exersises to blow up in gym, the right place to move along</h3>
+            <div class="cta">
+                <button class="cta-1">Explorer</button>
+                <button class="cta-2">Sign up today</button>
+            </div>
+            
+        </main>
+    </section>
+
+    <section class="classes">
+        <h1>our classes</h1>
+        <div class="slider-wrapper">
+            <div class="right">
+                <i class="fa-solid fa-chevron-right"></i>
+            </div>
+            
+        
+            <div class="slider">
+                <div class="image"></div>
+                <div class="image-desc">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis ipsum necessitatibus voluptate.
+                </div>
+            </div>
+            <div class="left">
+                <i class="fa-solid fa-chevron-left"></i>
+            </div>
+            
+        </div>
+       
+    </section>
+    
+    <div class="toggle-menu">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+    <div class="menu">
+        <div class="close-button">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        
+        <nav>
+            <a href="">Home</a>
+            <a href="">About</a>
+            <a href="">Projects</a>
+            <a href="">Portofolio</a>
+            <a href="">Contact</a>
+        </nav>
+    </div>
+
+    <section class="testimonial">
+        <h1>Our client's Feedbacks</h1>
+        <div class="testimonial-container">
+            <div class="progress-bar">
+                <div id="nested-bar"></div>
+            </div>
+            <i class="fa-solid fa-quote-right"></i>
+            <i class="fa-solid fa-quote-left"></i>
+            <div class="testimonial-text">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus, eaque architecto! Aut?</p>
+            </div>
+            
+                <div class="user-info">
+                <div id="image-wrapper"></div>
+                <div class="user-details">
+                    <h4 class="first-name">lahcen</h4>
+                    <p class="role">front-end Dev</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        made by Hassane BENCHAREF
+    </footer>
+    <script>
+        const openButton=document.querySelector(".toggle-menu");
+        const closeButton=document.querySelector(".close-button");
+        const menu=document.querySelector(".menu");
+        const classesSection=document.querySelector(".classes");
+        const testimonialSection=document.querySelector(".testimonial")
+        const rightArrow=document.querySelector(".right");
+        const leftArrow=document.querySelector(".left");
+        const testimonialContent=document.querySelector(".testimonial p");
+          const userImage=document.getElementById("image-wrapper");
+          const username=document.querySelector(".user-info .user-details h4");
+          const userRole=document.querySelector(".user-info .user-details p");
+          const progressBar=document.querySelector(".progress-bar");
+        const testimonials=[
+            {
+                tetimonial:"I used to spend hours writing creative copy, but now all I do is tell Rytr what I need and it writes everything for me. It's the ultimate AI content writer, and a must-have tool for bloggers, marketers, & entrepreneurs.",
+                author:"Meri Pipenbaher",
+                role:"Founder, Vidly",
+                image:"https://storage.googleapis.com/rytr-me/public/image/testimonials/meri.jpg"
+            },
+            {
+                tetimonial:"When it comes to web development, there is no denying  webpage, while CSS adds the necessary style and visual appeal. Together, they form the foundation upon which every successful website is built. HTML and CSS are absolutely indispensable tools in your arsenal.",
+                author:"Hassane BENCHAREF",
+                role:"computer science student",
+                image:"https://randomuser.me/api/portraits/men/32.jpg"
+            },{
+                tetimonial:"js makes me more productive and gets the job done in a fraction of the time. I'm glad I found js.",
+                author:"Frank lampard",
+                role:"web developer",
+                image:"https://randomuser.me/api/portraits/men/1.jpg"
+            }
+          ]
+
+          
+          
+
+
+
+
+          function displayTestimonial({tetimonial,author,role,image}){
+            testimonialContent.textContent=tetimonial.substring(0,tetimonial.length>100 ? 100 : tetimonial.length);
+            userImage.style.backgroundImage=`url(${image})`;
+            username.textContent=author;
+            userRole.textContent=role
+          }
+
+
+          let speed=8000;
+          
+          let index2=0;
+          
+          setInterval(()=>{
+            
+                displayTestimonial({...testimonials[index2]});
+                index2++;
+                if(index2>testimonials.length-1){
+                    index2=0;
+                }
+             
+
+          },speed)
+        openButton.addEventListener("click",(e)=>{
+           
+            menu.classList.add("open");
+
+        })
+        closeButton.addEventListener("click",()=>{
+            menu.classList.remove("open");
+        })
+        const classes=[
+            {
+                image:"https://images.pexels.com/photos/3837433/pexels-photo-3837433.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            },
+            {
+                image:"https://images.pexels.com/photos/1552252/pexels-photo-1552252.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            },
+            {
+                image:"https://images.pexels.com/photos/2247179/pexels-photo-2247179.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            },
+            {
+                image:"https://images.pexels.com/photos/1229356/pexels-photo-1229356.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            }
+        ]
+        const sliderWrapper=document.querySelector(".slider");
+        const imageWrapper=sliderWrapper.querySelector(".image");
+        const htmlElement=document.documentElement;
+
+        let index=0;
+        setInterval(()=>{
+            htmlElement.style.setProperty("--background-image",`url(${classes[index].image})`);
+            index++;
+            if(index > classes.length-1){
+                index=0 
+            }
+        },2000)
+        rightArrow.addEventListener("click",()=>{
+            index++;
+            if(index > classes.length-1){
+                index=0 
+            }
+            htmlElement.style.setProperty("--background-image",`url(${classes[index].image})`);
+        })
+        leftArrow.addEventListener("click",()=>{
+            index--;
+            if(index <0){
+                index=classes.length-1
+            }
+            htmlElement.style.setProperty("--background-image",`url(${classes[index].image})`);
+        })
+
+        //animation on classes section
+        addEventListener("scroll",()=>{
+            const BoundingClientOfClasses=classesSection.getBoundingClientRect().top;
+            const top1=(BoundingClientOfClasses*5)/4;
+            const BoundingClientOfTestimonial=testimonialSection.getBoundingClientRect().top;
+            const top2=(BoundingClientOfTestimonial*5)/4;
+
+            if(top1<innerHeight){
+                classesSection.classList.add("show")
+            }else{
+                classesSection.classList.remove("show")
+            }
+
+            if(top2<innerHeight){
+                testimonialSection.classList.add("show")
+            }else{
+                testimonialSection.classList.remove("show")
+            }
+        })
+    </script>
+</body>
+</html>
